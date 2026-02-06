@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bee Paints – Beautifying the Environment</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --brand-yellow: #FFD700;
+      --brand-blue: #1E40AF;
+      --brand-red: #EF4444;
+      --brand-black: #111827;
+      --light-bg: #F9FAFB;
+      --text-dark: #1F2937;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--light-bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(95%, 1200px);
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #fde047 0%, #fbbf24 25%, #ef4444 50%, #1e40af 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 650px;
+      margin: 0 auto;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    /* Products Section */
+    .products {
+      background-color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      color: var(--brand-blue);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+      justify-items: center;
+    }
+
+    .product-card {
+      text-align: center;
+      max-width: 280px;
+    }
+
+    /* Paint bucket styling */
+    .bucket {
+      position: relative;
+      margin: 0 auto 1.5rem;
+    }
+
+    .bucket-20l {
+      width: 140px;
+      height: 180px;
+    }
+
+    .bucket-4l {
+      width: 100px;
+      height: 130px;
+    }
+
+    .bucket-body {
+      width: 100%;
+      height: 85%;
+      background: white;
+      border-radius: 8px 8px 20px 20px;
+      border: 3px solid white;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .handle {
+      position: absolute;
+      top: 20%;
+      right: -10px;
+      width: 20px;
+      height: 40px;
+      border: 3px solid #ccc;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .bucket-label {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      text-align: center;
+    }
+
+    .bucket-label h3 {
+      color: var(--brand-blue);
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .bucket-label p {
+      color: var(--brand-red);
+      font-size: 0.7rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .address {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      color: #64748b;
+      width: 90%;
+      text-align: center;
+    }
+
+    .son-logo {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      color: var(--brand-blue);
+      font-weight: bold;
+    }
+
+    .lid {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    .lid-20l {
+      background: var(--brand-black);
+    }
+
+    .lid-4l {
+      background: var(--brand-red);
+    }
+
+    .product-card h3 {
+      font-size: 1.3rem;
+      margin: 0.8rem 0;
+      color: var(--brand-blue);
+    }
+
+    .product-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    /* Credibility Section */
+    .credibility {
+      background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+      padding: 3rem 1rem;
+    }
+
+    .credibility-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .review {
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      color: #1e3a8a;
+    }
+
+    .cert-badge {
+      display: inline-block;
+      background: var(--brand-blue);
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--brand-black);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .bucket-20l {
+        width: 120px;
+        height: 160px;
+      }
+
+      .bucket-4l {
+        width: 90px;
+        height: 115px;
+      }
+
+      .handle {
+        right: -8px;
+        width: 16px;
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Bee Paints</h1>
+      <p>Beautifying the Environment</p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products">
+    <div class="container">
+      <h2 class="section-title">Our Paint Buckets</h2>
+      <div class="product-grid">
+        <!-- 20-Litre Bucket -->
+        <div class="product-card">
+          <div class="bucket bucket-20l">
+            <div class="bucket-body">
+              <div class="handle"></div>
+              <div class="bucket-label">
+                <h3>BEE PAINTS</h3>
+                <p>Emulsion Paint</p>
+              </div>
+              <div class="address">No. 12, Paint Factory Road, Lagos</div>
+              <div class="son-logo">SON</div>
+            </div>
+            <div class="lid lid-20l"></div>
+          </div>
+          <h3>20-Litre Industrial Bucket</h3>
+          <p>Heavy-duty coverage for factories, warehouses, and large buildings.</p>
+        </div>
+
+        <!-- 4-Litre Bucket -->
+        <div class="product-card">
+          <div class="bucket bucket-4l">
+            <div class="bucket-body">
+              <div class="handle"></div>
+              <div class="bucket-label">
+                <h3>BEE PAINTS</h3>
+                <p>Emulsion Paint</p>
+              </div>
+              <div class="address">No. 12, Paint Factory Road, Lagos</div>
+              <div class="son-logo">SON</div>
+            </div>
+            <div class="lid lid-4l"></div>
+          </div>
+          <h3>4-Litre Household Bucket</h3>
+          <p>Perfect for homes, offices, and DIY projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credibility Section -->
+  <section class="credibility">
+    <div class="container">
+      <h2 class="section-title">Trusted Quality</h2>
+      <div class="credibility-content">
+        <p class="review">“Bee Paints gave our home a vibrant, long-lasting finish that still shines after two rainy seasons!” – Amina, Abuja</p>
+        <p>All Bee Paints products are manufactured to meet the highest standards of quality, durability, and safety as certified by the <strong>Standards Organisation of Nigeria (SON)</strong>.</p>
+        <div class="cert-badge">SON Certified • Premium Quality • Nigerian Made</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; 2026 Bee Paints. Beautifying the Environment.
+    </div>
+  </footer>
+
+</body>
+</html>
